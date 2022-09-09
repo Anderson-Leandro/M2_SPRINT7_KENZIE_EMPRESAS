@@ -93,6 +93,8 @@ export class Api {
                   })
                   .then(resp => {
                         if (resp) {
+                              localStorage.setItem("KenzieEmpresas:token", resp.token)
+                              localStorage.setItem("KenzieEmpresas:uuid", resp.uuid)
                               Toastify({
                                     text: `Login realizado com sucesso`,
                                     duration: 3000,
@@ -104,6 +106,8 @@ export class Api {
                                           background: "green",
                                     }
                               }).showToast();
+
+                             setTimeout(() => window.location.replace("src/pages/dashboard/dashboard.html"), 2800) 
                         }
 
                         return resp
@@ -111,6 +115,20 @@ export class Api {
 
             return userLogin
       }
+
+
+      static listCompanies(sector = "") {
+            const companies = fetch(`${this.baseUrl}/companies/${sector}`, {
+                  method: "GET",
+                  headers: this.headers
+            })
+                  .then(resp => resp.json())
+                  .then(resp => resp)
+                  .catch(err => console.log(err))
+
+            return companies
+      }
+
 
 
 

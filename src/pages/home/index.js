@@ -12,8 +12,8 @@ class Home {
                   }
                   else if (target.tagName == "SPAN" && target.innerText == "Cadastre-se") {
                         Home.modalHome("SignUp")
-                  }                  
-            })           
+                  }
+            })
       }
 
 
@@ -73,7 +73,7 @@ class Home {
                   inputUsername.placeholder = "Digite seu nome de usuário..."
 
                   h2.innerText = "Cadastre-se"
-                  
+
                   form.id = "formSignUp"
 
                   button.id = "btnSignUp"
@@ -93,11 +93,12 @@ class Home {
                               return obj[element.name] = element.value
                         })
 
-                        Api.createUser(obj)                        
-                  })                  
+                        console.log(obj)
+                        Api.createUser(obj)
+                  })
 
             }
-            else{
+            else {
                   form.append(inputEmail, inputPassword, button)
 
                   form.addEventListener("submit", (event) => {
@@ -114,7 +115,7 @@ class Home {
 
                         Api.login(obj)
                   })
-            }            
+            }
 
             div.append(h2, buttonClose, form)
 
@@ -125,8 +126,100 @@ class Home {
       }
 
 
-      
+      static partnersCard(partner) {
+
+            const li = document.createElement("li")
+
+            const h3 = document.createElement("h3")
+            h3.classList = "font-title-4"
+            h3.innerText = partner.name
+
+            const spanDesc = document.createElement("span")
+            spanDesc.classList = "font-text-2"
+            spanDesc.innerText = partner.description
+
+            const spanHour = document.createElement("span")
+            spanHour.classList = "font-text-2"
+            spanHour.innerText = `Abre às ${partner.opening_hours}`
+
+            const spanSector = document.createElement("span")
+            spanSector.classList = "font-text-3"
+            spanSector.innerText = partner.sectors.description
+
+            li.append(h3, spanDesc, spanHour, spanSector)
+
+            return li
+      }
+
+      static sectorOptions(sector){
+            const option = document.createElement("option")
+
+            option.value = sector
+            option.innerText = sector
+
+            return option
+      }
+
+
+
+      static async listPartners(sector = "") {
+            const allPartners = await Api.listCompanies(sector)
+
+            const ul = document.querySelector("#partners")            
+
+            ul.innerHTML = ""
+
+            allPartners.forEach(element => {
+                  ul.append(this.partnersCard(element))
+            })            
+
+            return ul
+      }
+
+      static async listAllSectors(){
+            const allPartners = await Api.listCompanies()
+
+            const sectors = []
+
+            const select = document.querySelector("#partnersSelect")
+
+            allPartners.forEach(element => {                  
+                  if(!sectors.includes(element.sectors.description)){
+                        sectors.push(element.sectors.description)
+                  }
+            })
+
+            sectors.forEach(element => {
+                  select.append(this.sectorOptions(element))
+            })
+
+
+            return select
+      }
+
+
+      static selectSector(){
+
+            const select = document.querySelector("#partnersSelect")
+
+            select.addEventListener("change", (event) => {
+                  
+                  if(event.target.value == "all"){
+                        this.listPartners()
+                  }
+                  else{
+                        this.listPartners(event.target.value)
+                  }
+            })
+
+            return select
+      }
+
+
 
 }
 
 Home.modalController()
+Home.listPartners()
+Home.selectSector()
+Home.listAllSectors()
