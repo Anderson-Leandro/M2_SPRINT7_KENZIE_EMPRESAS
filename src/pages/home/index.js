@@ -82,7 +82,6 @@ class Home {
                   form.append(inputEmail, inputPassword, inputProfessionalLevel, inputUsername, button)
 
                   form.addEventListener("submit", (event) => {
-                        console.log(event)
                         event.preventDefault()
 
                         const inputs = [...form]
@@ -93,7 +92,6 @@ class Home {
                               return obj[element.name] = element.value
                         })
 
-                        console.log(obj)
                         Api.createUser(obj)
                   })
 
