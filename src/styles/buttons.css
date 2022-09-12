@@ -27,6 +27,8 @@
 .button-3{
     height: var(--size-3);
     padding: 0 var(--paddingInlineButton3);
+    font-size: var(--font-text-2);
+
 }
 
 .button-width{
@@ -48,5 +50,13 @@
 
 .button-close:hover{
     background-color: var(--color-primary);
+}
+
+.img-edit{   
+    
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    
 }
 
