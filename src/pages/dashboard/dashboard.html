@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- Globals -->
+      <link rel="stylesheet" href="../../styles/global.css">
+      <link rel="stylesheet" href="../../styles/menu.css">
+      <link rel="stylesheet" href="../../styles/margins.css">
+      <link rel="stylesheet" href="../../styles/colors.css">
+      <link rel="stylesheet" href="../../styles/fonts.css">
+      <link rel="stylesheet" href="../../styles/buttons.css">
+      <link rel="stylesheet" href="../../styles/inputs.css">
+
+      <!-- Page -->
+      <link rel="stylesheet" href="./dashboard.css">
+
+      <!-- Toastify -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+      <meta name="description" content="Home Website">
+      <link rel="shortcut icon" href="../../assets/img/favicons/favicon.jpeg">
+
+
+
+
+      <title>Document</title>
+
+</head>
+
+<body>
+      <header class="bg-color-grey-2">
+
+            <nav>
+                  <span id="logout" class="button-default button-3">Sair</span>
+
+                  <Span id="createCompanie" class="button-default button-3">Criar empresa</Span>
+
+                  <span id="myCompanies" class="button-default button-3">Minhas empresas</span>
+
+                  <select name="" id="selectCompanie" class="input-default input-2">
+                        <option value="">Editar uma empresa</option>
+                        
+                  </select>
+
+            </nav>
+
+      </header>
+
+      <aside class="mt-5">
+            <h2 class="text-center" id="listTitle">Empresas por setor</h2>
+            <ul class="companies" id="companiesSectors">
+                  <li class="font-text-1">Setor A</li>
+                  <li class="font-text-1">Setor B</li>
+                  <li class="font-text-1">Setor C</li>
+                  <li class="font-text-1">Setor D</li>
+                  <li class="font-text-1">Setor E</li>
+                  <li class="font-text-1">Setor F</li>
+                  <li class="font-text-1">Setor G</li>
+                  <li class="font-text-1">Setor H</li>
+            </ul>
+      </aside>
+
+      <main>
+            <section id="0registerCompanie" class="modal hidden">
+
+                  <div>
+                        <button class="button-close">X</button>
+
+                        <form>
+                              <input class="input-default input-2" type="text" placeholder="Digite o nome da empresa">
+                              <input class="input-default input-2" type="text" placeholder="Digite o horario de abertura da empresa">
+                              <input class="input-default input-2" type="text" placeholder="Digite a descrição da empresa">
+
+                              <select class="input-default input-2" name="" id="">
+                                    <option value="">Selecione um setor</option>
+                                    <option value="">Setor A</option>
+                                    <option value="">Setor B</option>
+                                    <option value="">Setor C</option>
+                              </select>
+
+                              <button class="button-default button-3 button-width">Criar</button>
+
+                        </form>
+                  </div>
+
+            </section>
+
+
+
+
+
+      </main>
+
+      <script type="module" src="./dashboard.js"></script>
+
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>

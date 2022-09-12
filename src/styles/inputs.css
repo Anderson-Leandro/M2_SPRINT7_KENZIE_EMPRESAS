@@ -1,0 +1,20 @@
+.input-default{
+    height: var(--size-1);
+    width: 100%;
+    border: 2px solid transparent;
+    outline: none;
+    border-radius: var(--radius-1);
+    background-color: var(--color-grey-4);
+    padding: 0 var(--paddingLeft);
+    font-size: var(--font-text-1);
+}
+.input-default:hover{
+    background-color: var(--color-grey-3);
+    border-color: var(--color-primary);
+    color: var(--color-grey-1)
+}
+
+.input-2{
+    height: var(--size-3);
+    font-size: var(--font-text-2);
+}
