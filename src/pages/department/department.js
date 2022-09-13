@@ -20,9 +20,6 @@ export class Department {
 
                   const div = await this.departmentEmployes(target.id)
 
-                  console.log(div.children)
-                  console.log(div.children.length)
-
                   if (div.children.length > 0) {
                         liToAppend.append(div)
                   }
@@ -50,7 +47,7 @@ export class Department {
             if (departments == false) {
                   const li = document.createElement("li")
                   const p = document.createElement("p")
-                  p.innerText = "Não existe departamentos para essa empresa"
+                  p.innerText = "Não foram criados departamentos para essa empresa"
 
                   li.append(p)
 
@@ -108,7 +105,7 @@ export class Department {
             div.id = "employes"
 
             const title = document.createElement("h4")
-            title.innerText = "Funcionarios do departamento:"
+            title.innerText = "Funcionários do departamento:"
 
 
             if (ul.children.length > 0) {
@@ -158,8 +155,6 @@ export class Department {
             employesOptions.addEventListener("change", (event) => {
                   const value = event.target.value
 
-                  console.log(value)
-
                   if (value == "hire") {
                         return this.hireEmploye()
                   }
@@ -178,19 +173,6 @@ export class Department {
             const ul = document.createElement("ul")
             ul.classList = "companies carrossel"
 
-            // const companieDepartments = await Api.listDepartments(sessionStorage.getItem("Companie:Id"))
-
-            // const allEmployes = await Api.listUsers()
-
-
-            // companieDepartments.forEach(department => {
-            //       allEmployes.forEach(employe => {
-            //             if(department.uuid == employe.department_uuid){
-            //                   ul.append(this.employeCard(employe))
-            //             }
-            //       })
-            // })
-
             const companieEmployes = await this.allEmployes()
 
             companieEmployes.forEach(element => {
@@ -200,7 +182,7 @@ export class Department {
             if (ul.children.length < 1) {
                   const li = document.createElement("li")
                   const p = document.createElement("p")
-                  p.innerText = "Não existe funcionarios para essa empresa"
+                  p.innerText = "Não foram contratados funcionários para essa empresa"
 
                   li.append(p)
 
@@ -447,6 +429,9 @@ export class Department {
 
             const div = document.createElement("div")
 
+            const h2 = document.createElement("h2")
+            h2.innerText = "Contratar Funcionário"
+
             const btnClose = document.createElement("button")
             btnClose.classList = "button-close"
             btnClose.innerText = "X"
@@ -461,7 +446,7 @@ export class Department {
             select.classList = "input-default input-2"
 
             const option = document.createElement("option")
-            option.innerText = "Selecione um funcionario..."
+            option.innerText = "Selecione um funcionário..."
 
             select.append(option)
 
@@ -499,7 +484,7 @@ export class Department {
                   window.location.reload()
             })
 
-            div.append(btnClose, select, selectDepartment, button)
+            div.append(h2, btnClose, select, selectDepartment, button)
 
             section.append(div)
 
@@ -514,6 +499,9 @@ export class Department {
             section.classList = "modal"
 
             const div = document.createElement("div")
+
+            const h2 = document.createElement("h2")
+            h2.innerText = "Editar Funcionário"
 
             const btnClose = document.createElement("button")
             btnClose.classList = "button-close"
@@ -530,6 +518,7 @@ export class Department {
 
             const optionDepartment = document.createElement("option")
             optionDepartment.innerText = "Selecione um departamento..."
+            optionDepartment.value = "#"
 
             selectDepartment.append(optionDepartment)
 
@@ -540,6 +529,14 @@ export class Department {
 
             selectDepartment.addEventListener("change", (event) => {
                   const value = event.target.value
+
+
+                  select.innerHTML = ""
+                  const option = document.createElement("option")
+                  option.innerText = "Selecione um funcionário..."
+
+                  select.append(option)
+
 
                   employes.forEach(element => {
                         if (element.department_uuid == value) {
@@ -557,7 +554,7 @@ export class Department {
             select.classList = "input-default input-2"
 
             const option = document.createElement("option")
-            option.innerText = "Selecione um funcionario..."
+            option.innerText = "Selecione um funcionário..."
 
             select.append(option)
 
@@ -625,7 +622,7 @@ export class Department {
                   window.location.reload()
             })
 
-            div.append(btnClose, selectDepartment, select, selectWork, selectLevel, button)
+            div.append(h2, btnClose, selectDepartment, select, selectWork, selectLevel, button)
 
             section.append(div)
 
@@ -633,13 +630,16 @@ export class Department {
       }
 
 
-      static async fireEmploye(){
+      static async fireEmploye() {
 
             const section = document.createElement("section")
             section.id = "modal"
             section.classList = "modal"
 
             const div = document.createElement("div")
+
+            const h2 = document.createElement("h2")
+            h2.innerText = "Demitir Funcionário"
 
             const btnClose = document.createElement("button")
             btnClose.classList = "button-close"
@@ -656,6 +656,7 @@ export class Department {
 
             const optionDepartment = document.createElement("option")
             optionDepartment.innerText = "Selecione um departamento..."
+            optionDepartment.value = "#"
 
             selectDepartment.append(optionDepartment)
 
@@ -663,9 +664,17 @@ export class Department {
                   selectDepartment.append(this.createDepartmentOptions(element))
             })
 
-           
+
             selectDepartment.addEventListener("change", (event) => {
                   const value = event.target.value
+
+                  select.innerHTML = ""
+
+                  const option = document.createElement("option")
+                  option.innerText = "Selecione um funcionário..."
+
+                  select.append(option)
+
 
                   employes.forEach(element => {
                         if (element.department_uuid == value) {
@@ -683,7 +692,7 @@ export class Department {
             select.classList = "input-default input-2"
 
             const option = document.createElement("option")
-            option.innerText = "Selecione um funcionario..."
+            option.innerText = "Selecione um funcionário..."
 
             select.append(option)
 
@@ -691,14 +700,14 @@ export class Department {
             button.innerText = "Demitir"
             button.classList = "button-default button-3 button-width"
 
-            button.addEventListener("click", () => {                 
+            button.addEventListener("click", () => {
 
                   Api.fireEmploye(select.value)
                   window.location.reload()
             })
 
 
-            div.append(btnClose, selectDepartment, select, button)
+            div.append(h2, btnClose, selectDepartment, select, button)
 
             section.append(div)
 

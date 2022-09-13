@@ -1,0 +1,16 @@
+.departmentName{
+      font-size: var(--font-title-2);
+      color: var(--color-grey-1);
+      text-transform: capitalize;
+}
+
+.departmentDesc{
+      font-size: var(--font-text-1);
+      color: var(--color-grey-2);
+      text-transform: capitalize;
+      margin-top: 1rem;
+}
+
+li{
+      text-transform: capitalize;
+}
