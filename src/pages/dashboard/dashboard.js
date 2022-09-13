@@ -55,6 +55,9 @@ class Dashboard {
 
             const div = document.createElement("div")
 
+            const h2 = document.createElement("h2")
+            h2.innerText = "Criar empresa"
+
             const btnClose = document.createElement("button")
             btnClose.classList = "button-close"
             btnClose.innerText = "X"
@@ -118,7 +121,7 @@ class Dashboard {
                   Api.registerCompanie(obj)
             })
 
-            div.append(btnClose, form)
+            div.append(h2, btnClose, form)
 
             section.append(div)
 
@@ -203,11 +206,6 @@ class Dashboard {
             li.id = companie.uuid
             li.classList = "font-text-1 max-width"
 
-            const imgEdit = document.createElement("img")
-            imgEdit.src = "../../assets/img/edit.png"
-            imgEdit.classList = "img-edit"
-
-
             const h2 = document.createElement("h2")
             h2.innerText = companie.name
 
@@ -222,7 +220,7 @@ class Dashboard {
 
             const ul = await Department.companieDepartments(companie.uuid)
 
-            li.append(imgEdit, h2, pHours, pDesc, h4Departments, ul)
+            li.append(h2, pHours, pDesc, h4Departments, ul)
 
             return li
       }
@@ -254,6 +252,13 @@ class Dashboard {
       }
 
 
+      static buttonBack(){
+            const btnBack = document.querySelector("#back")
+
+            btnBack.addEventListener("click", () => {
+                  window.location.reload()
+            })
+      }
 
 
 
@@ -266,3 +271,4 @@ Dashboard.listenerController()
 Dashboard.selectCompanies()
 Dashboard.allMyCompanies()
 Dashboard.logout()
+Dashboard.buttonBack()

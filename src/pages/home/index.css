@@ -53,15 +53,29 @@ ul li:hover{
 }
 
 .modal div{
-      width: 80%;
+      width: 90%;
       margin: 10rem auto;
+      padding: 5rem 1rem;
       display: flex;
       flex-direction: column;
       gap: var(--gap-2);
+      position: relative;
 }
 
 .modal div form{
       display: flex;
       flex-direction: column;
       gap: var(--gap-3);
+}
+
+
+@media (min-width: 728px){
+      main section{
+            max-width: 35rem;
+            margin: 2rem auto;
+      }
+
+      .modal div{
+            max-width: 35rem;
+      }
 }
