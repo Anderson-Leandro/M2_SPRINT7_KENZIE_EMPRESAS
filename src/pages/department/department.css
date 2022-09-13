@@ -77,11 +77,13 @@ main{
 }
 
 .modal div {
-      width: 80%;
+      width: 90%;
       margin: 10rem auto;
+      padding: 5rem 1rem;
       display: flex;
       flex-direction: column;
       gap: var(--gap-2);
+      position: relative;
 }
 
 .modal div form {
@@ -93,4 +95,24 @@ main{
 .modal div form input::placeholder {
       font-size: var(--font-text-3);
       font-weight: var(--font-weight-3);
+}
+
+@media (min-width: 728px){
+
+      nav{
+            max-width: 50rem;
+            margin: 0 auto;
+      }
+      
+      nav .input-default{
+            
+            max-width: 20rem;
+            
+      }
+
+      .modal div{
+            max-width: 35rem;
+      }
+
+  
 }

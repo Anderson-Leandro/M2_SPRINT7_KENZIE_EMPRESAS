@@ -73,13 +73,22 @@ class UserDashboard {
 
             section.innerHTML = ""
 
+            const pTitle = document.createElement("p")
+            pTitle.innerText = "Meu Departamento:"
+            pTitle.classList = "font-title-4 mb-4"
+
             const pName = document.createElement("p")
             pName.innerText = department.name
+            pName.classList = "departmentName"
 
             const pDesc = document.createElement("p")
             pDesc.innerText = department.description
+            pDesc.classList = "departmentDesc"
 
-            return section.append(pName, pDesc)
+            const myCoworkers = document.querySelector("#myCoworkers")
+            myCoworkers.innerText = "Meus colegas de trabalho:"
+
+            return section.append(pTitle, pName, pDesc)
 
       }
 
@@ -92,7 +101,7 @@ class UserDashboard {
             companies.forEach(element => {
                   if (element.uuid == id.company_uuid) {
                         companieName.innerText = element.name
-                        companieName.classList.remove("font-title-3 align-center")
+                        companieName.classList.remove("font-title-3", "align-center")
                   }
             })
 
@@ -184,6 +193,13 @@ class UserDashboard {
             console.log(user)
       }
 
+      static async verification(){
+            const user = await Api.aboutUser()
+
+            if(user.is_admin == true || user.error){
+                  window.location.replace("../../../index.html")
+            }            
+      }
 
 
 
@@ -194,3 +210,4 @@ UserDashboard.logout()
 UserDashboard.listCoworkers()
 UserDashboard.buttonEditData()
 UserDashboard.typeOfUser()
+UserDashboard.verification()

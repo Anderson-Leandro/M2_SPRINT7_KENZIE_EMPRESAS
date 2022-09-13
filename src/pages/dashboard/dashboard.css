@@ -1,28 +1,28 @@
-nav{
+nav {
       display: flex;
       flex-direction: column;
       padding: 1rem 0.5rem;
       gap: 0.7rem;
 }
 
-nav div{
+nav div {
       display: flex;
-      justify-content: space-between;      
+      justify-content: space-between;
 }
 
 nav select {
       width: 100%;
 }
 
-main{
+main {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
 }
+
 .companies {
       display: flex;
       flex-wrap: wrap;
       padding-right: 0.5rem;
-      justify-content: space-between;
       gap: 1rem;
       margin: 1rem auto;
       width: 90%;
@@ -36,7 +36,6 @@ main{
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
-      /* margin: 0.5rem auto; */
       border: 2px solid transparent;
       cursor: pointer;
       position: relative;
@@ -47,6 +46,7 @@ main{
 }
 
 .carrossel {
+      display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
       gap: 1rem;
@@ -66,7 +66,7 @@ main{
       width: 100%;
 }
 
-.no-side-margin li{
+.no-side-margin li {
       width: 95%;
 }
 
@@ -83,11 +83,13 @@ main{
 }
 
 .modal div {
-      width: 80%;
+      width: 90%;
       margin: 10rem auto;
+      padding: 5rem 1rem;
       display: flex;
       flex-direction: column;
       gap: var(--gap-2);
+      position: relative;
 }
 
 .modal div form {
@@ -101,8 +103,27 @@ main{
       font-weight: var(--font-weight-3);
 }
 
-.color{
+.color {
       background-color: var(--color-primary-opacity);
       border-color: var(--color-primary-opacity);
-      /* color: var(--color-white) */
+}
+
+
+@media (min-width: 728px) {
+
+      nav .input-default{
+            
+            max-width: 20rem;
+            
+      }
+
+      .sector{
+            width: 40rem;
+            margin: 2rem auto;
+      }
+
+      .modal div{
+            max-width: 35rem;
+      }
+      
 }

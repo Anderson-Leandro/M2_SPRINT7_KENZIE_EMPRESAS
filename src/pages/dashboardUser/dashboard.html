@@ -18,6 +18,7 @@
 
       <!-- Page -->
       <link rel="stylesheet" href="../dashboard/dashboard.css">
+      <link rel="stylesheet" href="./dashboard.css">
 
       <!-- Toastify -->
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -34,30 +35,33 @@
       <header class="bg-color-grey-2">
 
             <nav>
-                  <span id="logout" class="button-default button-3">Sair</span>
+                  <div>
+                        <span id="logout" class="button-default button-3">Sair</span>
 
-                  <Span id="myData" class="button-default button-3">Editar meus dados</Span>
+                        <Span id="myData" class="button-default button-3">Editar meus dados</Span>
 
+                  </div>
             </nav>
 
       </header>
 
       <main>
-            <h1 class="mt-1 mb-1 text-center font-title-3 align-center" id="companieName">Atualmente você não faz parte de nenhuma empresa</h1>
+            <h1 class="mt-1 mb-1 text-center font-title-3 align-center" id="companieName">Atualmente você não faz parte
+                  de nenhuma empresa</h1>
 
-            <section class="mt-1 mb-1 text-center" id="departmentInformation">
-                  <!-- <p>Nome departamento</p>
-                  <p>Descrição departamento</p> -->
+            <section class="mt-1 mb-1" id="departmentInformation">
+                  
             </section>
 
             <section class="mt-1">
+                  <h2 class="font-title-4" id="myCoworkers"></h2>
                   <ul class="companies carrossel" id="coworkersList">
                         <li>
                               <p>Nome funcionario</p>
                               <p>Cargo funcionario</p>
                               <p>Modalidade de trabalho</p>
                         </li>
-                        
+
                   </ul>
             </section>
       </main>
