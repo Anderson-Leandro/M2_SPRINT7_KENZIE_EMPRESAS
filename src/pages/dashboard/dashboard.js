@@ -55,6 +55,9 @@ class Dashboard {
 
             const div = document.createElement("div")
 
+            const h2 = document.createElement("h2")
+            h2.innerText = "Criar empresa"
+
             const btnClose = document.createElement("button")
             btnClose.classList = "button-close"
             btnClose.innerText = "X"
@@ -118,7 +121,7 @@ class Dashboard {
                   Api.registerCompanie(obj)
             })
 
-            div.append(btnClose, form)
+            div.append(h2, btnClose, form)
 
             section.append(div)
 
@@ -254,6 +257,13 @@ class Dashboard {
       }
 
 
+      static buttonBack(){
+            const btnBack = document.querySelector("#back")
+
+            btnBack.addEventListener("click", () => {
+                  window.location.reload()
+            })
+      }
 
 
 
@@ -266,3 +276,4 @@ Dashboard.listenerController()
 Dashboard.selectCompanies()
 Dashboard.allMyCompanies()
 Dashboard.logout()
+Dashboard.buttonBack()

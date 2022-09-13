@@ -27,7 +27,7 @@
 
 
 
-      <title>Document</title>
+      <title>Dashboard</title>
 
 </head>
 
@@ -35,15 +35,23 @@
       <header class="bg-color-grey-2">
 
             <nav>
-                  <span id="logout" class="button-default button-3">Sair</span>
+                  <div>
+                        <span id="back" class="button-default button-3">Voltar</span>
 
-                  <Span id="createCompanie" class="button-default button-3">Criar empresa</Span>
+                        <span id="logout" class="button-default button-3 color">Sair</span>
 
-                  <span id="myCompanies" class="button-default button-3">Minhas empresas</span>
+                  </div>
+
+                  <div>
+                        <Span id="createCompanie" class="button-default button-3">Criar empresa</Span>
+
+                        <span id="myCompanies" class="button-default button-3">Minhas empresas</span>
+
+                  </div>
 
                   <select name="" id="selectCompanie" class="input-default input-2">
                         <option value="">Editar uma empresa</option>
-                        
+
                   </select>
 
             </nav>
@@ -72,8 +80,10 @@
 
                         <form>
                               <input class="input-default input-2" type="text" placeholder="Digite o nome da empresa">
-                              <input class="input-default input-2" type="text" placeholder="Digite o horario de abertura da empresa">
-                              <input class="input-default input-2" type="text" placeholder="Digite a descrição da empresa">
+                              <input class="input-default input-2" type="text"
+                                    placeholder="Digite o horario de abertura da empresa">
+                              <input class="input-default input-2" type="text"
+                                    placeholder="Digite a descrição da empresa">
 
                               <select class="input-default input-2" name="" id="">
                                     <option value="">Selecione um setor</option>

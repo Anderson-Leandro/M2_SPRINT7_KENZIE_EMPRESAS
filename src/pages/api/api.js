@@ -86,12 +86,13 @@ export class Api {
                         }
                   })
                   .then(resp => {
+                        console.log(resp)
                         if (resp) {
                               localStorage.setItem("KenzieEmpresas:token", resp.token)
                               localStorage.setItem("KenzieEmpresas:uuid", resp.uuid)
                               Toastify({
                                     text: `Login realizado com sucesso`,
-                                    duration: 3000,
+                                    duration: 2000,
                                     close: false,
                                     gravity: "top", // `top` or `bottom`
                                     position: "center", // `left`, `center` or `right`
@@ -101,7 +102,14 @@ export class Api {
                                     }
                               }).showToast();
 
-                              setTimeout(() => window.location.replace("src/pages/dashboard/dashboard.html"), 2800)
+                              if (resp.is_admin) {
+                                    setTimeout(() => window.location.replace("src/pages/dashboard/dashboard.html"), 1800)
+                              }
+                              else{
+                                    setTimeout(() => window.location.replace("src/pages/dashboardUser/dashboard.html"), 1800)
+                              }
+
+
                         }
 
                         return resp
@@ -304,7 +312,7 @@ export class Api {
       }
 
 
-      static fireEmploye(employeId){
+      static fireEmploye(employeId) {
             const employe = fetch(`${this.baseUrl}/departments/dismiss/${employeId}`, {
                   method: "PATCH",
                   headers: this.headers
@@ -320,6 +328,50 @@ export class Api {
                   .catch(err => console.log(err))
 
             return employe
+      }
+
+      static coworkers() {
+            const employes = fetch(`${this.baseUrl}/users/departments/coworkers`, {
+                  method: "GET",
+                  headers: this.headers
+            })
+                  .then(resp => resp.json())
+                  .then(resp => resp)
+                  .catch(err => console.log(err))
+
+            return employes
+      }
+
+
+      static editUser(data){
+            const user = fetch(`${this.baseUrl}/users`, {
+                  method: "PATCH",
+                  headers: this.headers,
+                  body: JSON.stringify(data)
+            })
+                  .then(resp => {
+                        console.log(resp)
+                        return resp.json()
+                  })
+                  .then(resp => {
+                        console.log(resp)
+                        return resp
+                  })
+                  .catch(err => console.log(err))
+
+            return user
+      }
+
+      static aboutUser(){
+            const user = fetch(`${this.baseUrl}/users/profile`, {
+                  method: "GET",
+                  headers: this.headers
+            })
+                  .then(resp => resp.json())
+                  .then(resp => resp)
+                  .catch(err => console.log(err))
+
+            return user
       }
 
 
