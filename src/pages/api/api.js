@@ -282,7 +282,7 @@ export class Api {
                         console.log(resp)
                         return resp
                   })
-                  // .catch(err => console.log(err))
+                  .catch(err => console.log(err))
 
             return employe
 

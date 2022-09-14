@@ -119,6 +119,7 @@ class Dashboard {
                   })
 
                   Api.registerCompanie(obj)
+                  window.location.reload()
             })
 
             div.append(h2, btnClose, form)
