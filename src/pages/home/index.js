@@ -93,6 +93,7 @@ class Home {
                         })
 
                         Api.createUser(obj)
+                        window.location.reload()
                   })
 
             }
